@@ -1,0 +1,26 @@
+﻿@model ShopCartViewModel
+
+<div class="modal modal-sheet position-static d-block p-4 py-md-5" tabindex="-1" role="dialog" id="modalSheet">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header border-bottom-0">
+        <h1 class="modal-title fs-5">Your Cart</h1>
+      </div>
+      <div class="modal-body py-0">
+        @foreach(var elem in Model.shopCart.listShopItems)
+    {
+        <div class="list-group mb-3">
+            <h6 class="text-primary">@elem.car.name</h6>
+            <small class="text-body-secondary">@elem.car.shortDesc</small>
+            <span class="text-body-secondary">@elem.car.price.ToString("c") </span>
+        </div>
+    }
+    <hr />
+      </div>
+      <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+      <a class="btn btn-lg btn-primary" asp-controller="Order" asp-action="Checkout">Create Order</a>
+      <a class="btn btn-lg btn-secondary" asp-controller="Home" asp-action="Index">Continue</a>
+      </div>
+    </div>
+  </div>
+</div>

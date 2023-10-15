@@ -1,0 +1,9 @@
+﻿@using System.Globalization;
+@model Car
+
+<div class="col-lg-4">
+    <img class="img-thumbnail" src="@Model.img" alt="@Model.name" />
+    <h2>Model: @Model.name</h2>
+    <p>Price: @Model.price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</p>
+    <p><a class="btn btn-dark" asp-controller="ShopCart" asp-action="addToCart" asp-route-id="@Model.id">Add to Cart</a></p>
+</div>
